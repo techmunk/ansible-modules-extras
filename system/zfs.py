@@ -184,7 +184,7 @@ class Zfs(object):
     def set_properties_if_changed(self):
         current_properties = self.get_current_properties()
         for prop, value in self.properties.iteritems():
-            if current_properties.get(prop, None) != value:
+            if value != '' and current_properties.get(prop, None) != value:
                 self.set_property(prop, value)
 
     def get_current_properties(self):
